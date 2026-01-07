@@ -1,1 +1,1 @@
-# webpack-template
+# Weather Dashboard Application

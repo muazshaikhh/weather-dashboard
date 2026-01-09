@@ -50,6 +50,8 @@ form.addEventListener("submit", async (e) => {
     
 })
 
+const changeTempBtn = document.querySelector("#changeTemp");
+
 function displayWeather(data) {
     const currentLocation = document.querySelector(".current-location");
     const temperature = document.querySelector(".temperature");
@@ -60,20 +62,19 @@ function displayWeather(data) {
     temperature.textContent = `${data.temp.toFixed(1)}°${currentUnit}`;
     conditions.textContent = data.conditions;
     description.textContent = data.description;
+
+    changeTempBtn.textContent = `Showing °${currentUnit}`;
 }
 
-const changeTempBtn = document.querySelector("#changeTemp");
 changeTempBtn.addEventListener("click", () => {
     const temperature = document.querySelector(".temperature");
 
     if (currentUnit === 'C') {
         lastFetchedData.temp = (lastFetchedData.temp * (9 / 5)) + 32;
         currentUnit = 'F';
-        changeTempBtn.textContent = "Showing °F";
     } else {
         lastFetchedData.temp = (lastFetchedData.temp - 32) * (5 / 9);
         currentUnit = 'C';
-        changeTempBtn.textContent = "Showing °C";
     }
     displayWeather(lastFetchedData);
 })

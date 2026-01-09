@@ -32,7 +32,6 @@ function processData(rawData) {
     return myData;
 }
 
-// change to whatevr name is
 const form = document.querySelector("form");
 const input = document.querySelector("input");
 
